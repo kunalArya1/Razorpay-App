@@ -56,6 +56,15 @@
                         },
                         "data": JSON.stringify({response}),
                         }   
+
+                        $.ajax(settings).done(function(response){
+                            if(response.signatureIsValid == 'true'){
+                                window.location.href ='/Payment-Success'
+                            }
+                            else{
+                                window.location.href ='/Payment-Failed'
+                            }
+                        })
             },
             "prefill": {
                 "name": "Gaurav Kumar",

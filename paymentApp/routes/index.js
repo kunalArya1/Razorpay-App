@@ -1,4 +1,5 @@
 var express = require('express');
+const res = require('express/lib/response');
 var router = express.Router();
 const Razorpay = require('razorpay');
 
@@ -43,6 +44,14 @@ router.post("/api/payment/verify",(req,res)=>{
     response={"signatureIsValid":"true"}
        res.send(response);
    });
+
+   router.get('/Payment-Success', (req,res) =>{
+     res.render('paymentSuccess');
+   });
+
+   router.get('/Payment-Failed', (req,res) =>{
+     res.render('paymentFailed');
+   })
 
 
 module.exports = router;
